@@ -34,7 +34,7 @@
 
 \begin{document}
 
-\title{Enabling HATEOAS Through HTTP OPTIONS, Link Elements, And The HTTP Vocabulary In RDF}
+\title{Enabling HATEOAS Through HTTP OPTIONS, Link Headers, And The HTTP Vocabulary In RDF}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -93,6 +93,7 @@
 
 \maketitle
 \begin{abstract}
+
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -103,7 +104,13 @@
 \keywords{RDF, LOD, Linked Data, Semantic Web, NLP, Video} % NOT required for Proceedings
 
 \section{Introduction}\label{sec:introduction}
-With SemWebVid \cite{Steiner:SemWebVid} we introduced a client-side interactive Ajax application for the automatic generation of RDF video annotations. For this paper we have re-implemented and vastly improved the annotation logic on the server-side, resulting in a RESTful read/write-enabled Web service for RDF video annotations. A YouTube video is described by a Google Data Atom feed\footnote{E.g., \url{http://gdata.youtube.com/feeds/api/videos/Rq1dow1vTHY}}. In order to semantically annotate the various elements of this feed, we concentrated on the following fields (in XPath syntax): title \texttt{/entry/media:group/media:title}, description \texttt{/entry/\-media:\-group/media:description}, tags \texttt{/entry/media:\-group/media:\-keywords}. YouTube offers an automatic audio transcription service and users can also upload audio transcriptions on their own. This allows for closed captions in several languages (we differentiate between subtitles and closed captions, where subtitles are hard-encoded into the video, and closed captions separate resources). In addition to the previously mentioned elements of the Google Data Atom feed, we thus use closed captions\footnote{E.g., \url{http://www.youtube.com/watch_ajax?action_get_caption_track_all&v=Rq1dow1vTHY}} when they are available.
+In one of his more famous rants\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven}} Roy T. Fielding complains about the common practice to call about any HTTP-based interface a REST API. He names a concrete example and writes that it actually "screams RPC" [sic]. Fielding continues that REST APIs must be hypertext driven. He defines\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718}} \textit{hypertext} (and positions it to the term \textit{hypermedia}) as follows:
+\begin{quotation}
+When I say hypertext, I mean the simultaneous presentation of information and controls such that the information becomes the affordance through which the user (or automaton) obtains choices and selects actions. Hypermedia is just an expansion on what text means to include temporal anchors within a media stream; most researchers have dropped the distinction.
+
+Hypertext does not need to be HTML on a browser. Machines can follow links when they understand the data format and relationship types.
+\end{quotation}
+For REST purists Hypermedia As the Engine Of Application State (HATEOAS) is the last and the hardest step towards the full glory of REST.
 
 The remainder of this paper is structured as follows: 
 

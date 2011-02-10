@@ -105,11 +105,11 @@
 
 \section{Introduction}\label{sec:introduction}
 In one of his blog posts\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven}} Roy T. Fielding complains about the common practice to call any and all HTTP-based interface a REST API. He names a concrete example and writes that it actually "screams RPC" [sic]. Fielding continues that REST APIs must be hypertext driven. He defines\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718}} \textit{hypertext} (and compares it to the term \textit{hypermedia}) as follows:
-\begin{quotation}
+\begin{quote}
 When I say hypertext, I mean the simultaneous presentation of information and controls such that the information becomes the affordance through which the user (or automaton) obtains choices and selects actions. Hypermedia is just an expansion on what text means to include temporal anchors within a media stream; most researchers have dropped the distinction.
 
 Hypertext does not need to be HTML on a browser. Machines can follow links when they understand the data format and relationship types.
-\end{quotation}
+\end{quote}
 The essential constraint of REST is the hypermedia constraint, which in the Richardson Maturity Model (see the following section \ref{sec:rmm}) is described as the last step towards the full glory of REST.
 
 \subsection{Richardson Maturity Model (RMM)}\label{sec:rmm}
@@ -125,7 +125,7 @@ We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{
 \subsection{Present Ways To (Partly) Fulfill the Hypermedia Constraint}\label{sec:currenthateoas}
 The hypermedia constraint is enabled by embedding controls (e.g., links, forms) in the representations made available to the client. There is no standard way to represent hypermedia controls, however, there are common practices that we present in the following section (not in any particular order).
 
-\subsubsection{Atom (RFC4287)}\label{sec:atom}
+\subsubsection{Atom Syndication Format (RFC4287)}\label{sec:atom}
 In the Atom Syndication Format \cite{Atom:Synd} there is the \texttt{atom:link} element that defines a reference from an entry or feed to a Web resource. The structure of the element is as follows:
 \begin{verbatim}
 atomLink =
@@ -160,13 +160,13 @@ A regular human-readable (X)HTML page can serve as a hypermedia control, too. Co
 We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http://www.crummy.com/writing/speaking/2008-QCon/act3.html}} to reference a subset of description languages and mechanisms that are commonly criticized as being brittle\footnote{See, e.g., \url{http://bitworking.org/news/193/Do-we-need-WADL} for WADL.}. The goal of such form technologies like the Web Application Description Language (WADL)\footnote{\url{http://www.w3.org/Submission/wadl/}}, RDF Forms\footnote{\url{http://www.markbaker.ca/2003/05/RDF-Forms/}}, or even the Web Services Description Language Version 2.0 (WSDL 2.0)\footnote{\url{http://www.w3.org/TR/wsdl20/}} is to describe the HTTP methods, parameters, and allowed values that are involved during a Web service request. It is to be noted that WSDL 2.0 is a design-time description language, whereas WADL at least \textit{can} be used as a run-time description language. We still decided to mention it because it can be used\footnote{\url{http://www.ibm.com/developerworks/webservices/library/ws-restwsdl/}} to describe REST Web services.
 
 \subsubsection{Media Types}\label{sec:mediatypes}
-Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are hypermedia controls. If media types are defined to be extensible (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. In order to register a new custom media type, a registration template can be submitted for review to the IANA\footnote{See \url{http://tools.ietf.org/html/rfc2048\#section-2.1.2} and http://tools.ietf.org/html/rfc2048\#section-2.1.3 of RFC2048 for the Vendor and the Personal Or Vanity Tree.}. Specific, i.e., exactly not \texttt{application/json}, \texttt{application/xml} or \texttt{text/xml}) are an essential aspect of achieving self descriptiveness and key for implementing truely RESTful APIs.
+Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are hypermedia controls. If media types are defined to be extensible (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. In order to register a new custom media type, a registration template can be submitted for review to the IANA\cite{IANA:Mime}. Specific, i.e., exactly not \texttt{application/json}, \texttt{application/xml} or \texttt{text/xml}) are an essential aspect of achieving self descriptiveness and key for implementing truely RESTful APIs.
 
 \section{Link Headers}\label{sec:linkheaders}
-In the Web Linking\cite{Link:Headers} proposed standard document Mark Nottingham specifies relation types for Web links and how such links can be used with a Link header field in HTTP. In addition to that the document also defines a registry for link relations\footnote{\url{http://tools.ietf.org/html/rfc5988\#section-6.2.2}}, updating Atom\cite{Atom:Synd}. From \cite{Link:Headers}:
-\begin{quotation}
+In the Web Linking\cite{Link:Headers} proposed standard document Mark Nottingham specifies relation types for Web links and how such links can be used with a Link header field in HTTP. In addition to that the document also defines a registry for link relations in section 6.2.2, therewith updating the relations defined in the Atom Syndication Format. Quoting from \cite{Link:Headers}:
+\begin{quote}
 The Link entity-header field provides a means for serialising one or more links in HTTP headers.  It is semantically equivalent to the <LINK> element in HTML, as well as the atom:link feed-level element in Atom [RFC4287].
-\end{quotation}
+\end{quote}
 A concrete example is shown below:
 \begin{verbatim}
 Link: <http://search.example.org/results/page7>;
@@ -174,14 +174,28 @@ Link: <http://search.example.org/results/page7>;
 Link: <http://search.example.org/results/page9>;
     rel="next"; title="next results"
 \end{verbatim}
-As outlined in the same example in section \ref{sec:hateoas}, the implication is that the current page is page 8, as the link relations \texttt{previous} and \texttt{next} refer to an ordered series of resources.
+As outlined in the same example in section \ref{sec:hateoas}, the implication is that the current page is page 8, as the link relations \texttt{previous} and \texttt{next} refer to an ordered series of resources. We want to highlight that link relations are not limited to the set of registered relations, but can be any IRI. If we build the bridge to the world of Linked Data\cite{TimBL:LinkedData} where Tim Berners-Lee defines the four rules for Linked Data, we can see that there, too, URIs play a central role:
+\begin{enumerate}
+\item Use URIs as names for things.
+\item Use HTTP URIs so that people can look up those names.
+\item When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL).
+\item Include links to other URIs, so that they can discover more things.
+\end{enumerate}
+The idea is thus to combine link relations with meaningful Linked Data URIs. How powerful this is can be shown using an example: assume http://example.org/video.webm was a reference to a video file. We can then deliver a Link header along with the video data such as:
+\begin{verbatim}
+Link: <http://example.org/video.txt>;
+    rel="http://dbpedia.org/resource/-
+        Transcription_%28linguistics%29";
+    title="transcription of the video";
+    type="text/plain"
+\end{verbatim}
 
 \section{HTTP OPTIONS}\label{sec:httpoptions}
-\begin{quotation}
+\begin{quote}
 The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots]
 
 A 200 response SHOULD include any header fields that indicate optional features implemented by the server and applicable to that resource (e.g., Allow), possibly including extensions not defined by this specification. The response body, if any, SHOULD also include information about the communication options. The format for such a body is not defined by this specification, but might be defined by future extensions to HTTP. Content negotiation MAY be used to select the appropriate response format.
-\end{quotation} \cite{HTTP:Spec}
+\end{quote} \cite{HTTP:Spec}
 
 \section{The HTTP Vocabulary in RDF}\label{sec:httpvocab}
 \cite{HTTP:RDF}

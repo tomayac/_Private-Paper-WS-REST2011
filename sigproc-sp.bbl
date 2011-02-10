@@ -16,6 +16,16 @@ J.~Gregorio and B.~de~h{\'O}ra.
 \newblock {The Atom Publishing Protocol}, October 2007.
 \newblock \url{http://tools.ietf.org/html/rfc5023}.
 
+\bibitem{HTTP:RDF}
+J.~Koch and C.~A. Velasco.
+\newblock {HTTP Vocabulary in RDF 1.0}, 29 October 2009.
+\newblock \url{http://www.w3.org/TR/HTTP-in-RDF/}.
+
+\bibitem{Link:Headers}
+M.~Nottingham.
+\newblock {Web Linking}, October 2010.
+\newblock \url{http://tools.ietf.org/html/rfc5988}.
+
 \bibitem{Atom:Synd}
 M.~Nottingham and J.~Sayre.
 \newblock {The Atom Syndication Format}, December 2005.

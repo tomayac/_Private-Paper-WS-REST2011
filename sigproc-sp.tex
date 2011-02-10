@@ -160,6 +160,9 @@ We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http
 \subsubsection{Media Types}\label{sec:mediatypes}
 Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are links. If media types are defined in an open way (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. Media types are cheap to create\footnote{See \url{http://tools.ietf.org/html/rfc2048\#section-2.1.2} and http://tools.ietf.org/html/rfc2048\#section-2.1.3 of RFC2048.} and are seen as the method of choice for implementing truely RESTful APIs.
 
+\section{Link Headers}\label{sec:linkheaders}
+\cite{Link:Headers}
+
 \section{HTTP OPTIONS}\label{sec:httpoptions}
 \begin{quotation}
 The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots]
@@ -168,6 +171,7 @@ A 200 response SHOULD include any header fields that indicate optional features 
 \end{quotation} \cite{HTTP:Spec}
 
 \section{The HTTP Vocabulary in RDF}\label{sec:httpvocab}
+\cite{HTTP:RDF}
 
 \begin{figure}
  \centering

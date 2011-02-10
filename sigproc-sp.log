@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  10 FEB 2011 02:20
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  10 FEB 2011 02:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -410,12 +410,12 @@ Overfull \hbox (5.21043pt too wide) in paragraph at lines 158--159
  []
 
 
-Overfull \hbox (1.25893pt too wide) in paragraph at lines 167--168
+Overfull \hbox (1.25893pt too wide) in paragraph at lines 170--171
 \T1/aer/m/n/9 by the server and ap-pli-ca-ble to that re-source (e.g.,
  []
 
 
-Overfull \hbox (3.16624pt too wide) in paragraph at lines 167--168
+Overfull \hbox (3.16624pt too wide) in paragraph at lines 170--171
 \T1/aer/m/n/9 SHOULD also in-clude in-for-ma-tion about the com-
  []
 
@@ -426,13 +426,13 @@ File: statemachine.png Graphic file (type png)
 
  <./statemachine.png (PNG copy)>] (./sigproc-sp.aux) ) 
 Here is how much of TeX's memory you used:
- 3146 strings out of 493747
- 40803 string characters out of 3143546
- 99170 words of memory out of 3000000
- 6355 multiletter control sequences out of 15000+200000
+ 3149 strings out of 493747
+ 40844 string characters out of 3143546
+ 98184 words of memory out of 3000000
+ 6358 multiletter control sequences out of 15000+200000
  51092 words of font info for 70 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,1207b,249s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,1207b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2010/
 texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2010/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2010/texmf-dist/fonts/
@@ -443,7 +443,7 @@ blic/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/
 helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmb8a.p
 fb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sigproc-sp.pdf (3 pages, 421356 bytes).
+Output written on sigproc-sp.pdf (3 pages, 422493 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  36 compressed objects within 1 object stream

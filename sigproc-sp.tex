@@ -83,7 +83,7 @@
        \email{tsteiner@lsi.upc.edu}
 \alignauthor Jan Algermissen\\
        \affaddr{NORD Software Consulting}\\
-       \affaddr{Kriemhildstrasse 7}\\
+       \affaddr{Kriemhildstra\ss e 7}\\
        \affaddr{22559 Hamburg}\\
        \email{info@nordsc.com}
 }
@@ -242,15 +242,27 @@ _:req a http:Request ;
 \end{verbatim}
 Albeit verbous, the RDF triples represent the request in a protocol-compliant way. The response to the request could be modeled in the blank node \texttt{\_:resp}.
 
-\section{Implementation And Lessons Learnt}\label{sec:implementation}
+\section{Implementation And Learnings}\label{sec:implementation}
 Bringing all the technologies mentioned above together, first, we have Link headers to transparently inject data into a response without touching the body of the HTTP message. Second, we have HTTP OPTIONS as a means of discovering a resource on HTTP level. Third, we have the HTTP Vocabulary in RDF. which allows for HTTP communication to be modeled.
 
-In order to test what can be done with regards to the hypermedia constraint with these technologies, we took an existing Web application of ours\footnote{\url{http://tomayac.com/semwebvid/}}, and converted it into an API with the functionality to automatically annotate YouTube videos in RDF, where the input is a YouTube video ID, and the output an RDF document. In the course of implementing this API, a set of secondary wrapper APIs were implemented as well, one for YouTube video search based on a plaintext query, one for Named Entity Extraction (NEE) based on a text fragment, and one for URI Lookup (UL) based on a plaintext query. See Figure \ref{fig:overview} for an overview of the structure of the services and the link relations between them. We serve the output of these wrapping services with the pseudo media types \texttt{application/prs.atom+json} for YouTube API-based data, with \texttt{application/prs.nee-entity+json} for NEE-based data, and with \texttt{application/prs.ul-entity+json} for UL-based data. The main problem of the Web service are the output constraints of our API: the video annotation service is designed to return RDF in one of its serializations, in consequence the media types are, e.g., \texttt{text/turtle}, or \texttt{application/rdf+xml}. The RDF/XML media type\footnote{\url{http://tools.ietf.org/html/rfc3870}} 
+In order to test what can be done with regards to the hypermedia constraint with these technologies, we took an existing Web application of ours\footnote{\url{http://tomayac.com/semwebvid/}}, and converted it into an API with the functionality to automatically annotate YouTube videos in RDF, where the input is a YouTube video ID, and the output an RDF document. In the course of implementing this API, a set of secondary wrapper APIs were implemented as well, one for YouTube video search based on a plaintext query, one for Named Entity Extraction (NEE) based on a text fragment, and one for URI Lookup (UL) based on a plaintext query. See Figure \ref{fig:overview} for an overview of the structure of the services and the link relations between them. We serve the output of these wrapping services with the pseudo media types \texttt{application/prs.atom+json} for YouTube API-based data, with \texttt{application/prs.nee-entity+json} for NEE-based data, and with \texttt{application/prs.ul-entity+json} for UL-based data. The main problem of the Web service are the output constraints of our API: the video annotation service is designed to return RDF in one of its serializations, in consequence the media types are, e.g., \texttt{text/turtle}, or \texttt{application/rdf+xml}. The RDF/XML media type\footnote{\url{http://tools.ietf.org/html/rfc3870}} describes the format, however, no concrete actions. With our Web service it is, however, possible to, e.g., modify an existing automatically generated RDF description of a video in order to correct things for example (via a PUT, or PATCH once implemented, with the new data). One can also DELETE a description, or retrieve the related audio transcript to a video, short, there are actions as potential next steps that are not described by the generic RDF/XML media type. This is where Link headers come into play. For the video annotation API, these are the Link headers that get sent when one accesses \url{http://localhost:3000/youtube/rdf/{video_id}}, where \{video\_id\} must be a valid YouTube video id, e.g. \texttt{5irhWbQrFTE}:
+\begin{verbatim}
+Link: <http://localhost:3000/youtube/search/{query}>;
+             rel="search"; title="search",
+      <>; rel="edit"; title="delete, modify",
+      <>; rel="alternate"; type="application/rdf+xml";
+          title="application/rdf+xml",
+      <>; rel="alternate"; type="text/turtle";
+          title="text/turtle",
+      <http://localhost:3000/youtube/videos/5irhWbQrFTE>;
+          rel="related"; type="application/prs.atom+json";
+          title="video metadata"
+\end{verbatim}
 
 \begin{figure}
  \centering
  \includegraphics[width=\linewidth]{statemachine.png}
- \caption{Overview of the structure of our Web services with link relations, and allowed HTTP methods.}
+ \caption{Overview of the Web service structure with link relations, and allowed HTTP methods.}
  \label{fig:overview}
 \end{figure}
 

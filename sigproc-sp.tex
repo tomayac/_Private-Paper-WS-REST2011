@@ -243,11 +243,15 @@ _:req a http:Request ;
 Albeit verbous, the RDF triples represent the request in a protocol-compliant way. The response to the request could be modeled in the blank node \texttt{\_:resp}.
 
 \section{Implementation And Lessons Learnt}\label{sec:implementation}
+Bringing all the technologies mentioned above together, first, we have Link headers to transparently inject data into a response without touching the body of the HTTP message. Second, we have HTTP OPTIONS as a means of discovering a resource on HTTP level. Third, we have the HTTP Vocabulary in RDF. which allows for HTTP communication to be modeled.
+
+In order to test what can be done with regards to the hypermedia constraint with these technologies, we took an existing Web application of ours\footnote{\url{http://tomayac.com/semwebvid/}}, and converted it into an API with the functionality to automatically annotate YouTube videos in RDF, where the input is a YouTube video ID, and the output an RDF document. In the course of implementing this API, a set of secondary wrapper APIs were implemented as well, one for YouTube video search based on a plaintext query, one for Named Entity Extraction (NEE) based on a text fragment, and one for URI Lookup (UL) based on a plaintext query. See Figure \ref{fig:overview} for an overview of the structure of the services and the link relations between them. We serve the output of these wrapping services with the pseudo media types \texttt{application/prs.atom+json} for YouTube API-based data, with \texttt{application/prs.nee-entity+json} for NEE-based data, and with \texttt{application/prs.ul-entity+json} for UL-based data. The main problem of the Web service are the output constraints of our API: the video annotation service is designed to return RDF in one of its serializations, in consequence the media types are, e.g., \texttt{text/turtle}, or \texttt{application/rdf+xml}. The RDF/XML media type\footnote{\url{http://tools.ietf.org/html/rfc3870}} 
+
 \begin{figure}
  \centering
  \includegraphics[width=\linewidth]{statemachine.png}
- \caption{State machine for a Web service with link relations, and allowed HTTP methods.}
- \label{fig:statemachine}
+ \caption{Overview of the structure of our Web services with link relations, and allowed HTTP methods.}
+ \label{fig:overview}
 \end{figure}
 
 \section{Related Work And Conclusion}\label{sec:relatedwork}

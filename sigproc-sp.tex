@@ -120,7 +120,7 @@ The authors, however, prefer not to use the RMM because it implies that the thre
 The remainder of this paper is structured as follows: 
 
 \section{On the Hypermedia Constraint}\label{sec:hateoas}
-We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. The next big component in the acronym HATEOAS is \textit{application state}. The problem, however, with \textit{application state} is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained ten results and a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, it can be directly implied that the current page must be page eight, if, and only if, the relation and/or meaning of the links is well-known beforehand. Hence the application is in state eight, without the explicit need to serialize this state somehow.
+We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. Next, we need to define \textit{application state}. The problem with \textit{application state}, however, is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained ten results and a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, it can be directly implied that the current page must be page eight, if, and only if, the relation and/or meaning of the links is well-known beforehand. Hence the application is in state eight, without the explicit need to serialize this state somehow. The state machine of an application is not defined by the service, but by the user agent. In other words, the application comes into being by the choices the user agent makes, not by what the service intended.
 
 \subsection{Present Ways To (Partly) Fulfill the Hypermedia Constraint}\label{sec:currenthateoas}
 The hypermedia constraint is enabled by embedding controls (e.g., links, forms) in the representations made available to the client. There is no standard way to represent hypermedia controls, however, there are common practices that we present in the following section (not in any particular order).
@@ -174,7 +174,7 @@ Link: <http://search.example.org/results/page7>;
 Link: <http://search.example.org/results/page9>;
     rel="next"; title="next results"
 \end{verbatim}
-As outlined in the same example in section ref{sec:hateoas}, the implication is that the current page is page 8, as the link relations \texttt{previous} and \texttt{next} refer to an ordered series of resources.
+As outlined in the same example in section \ref{sec:hateoas}, the implication is that the current page is page 8, as the link relations \texttt{previous} and \texttt{next} refer to an ordered series of resources.
 
 \section{HTTP OPTIONS}\label{sec:httpoptions}
 \begin{quotation}

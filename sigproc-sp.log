@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  10 FEB 2011 10:35
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  10 FEB 2011 10:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -436,7 +436,7 @@ Here is how much of TeX's memory you used:
  6359 multiletter control sequences out of 15000+200000
  51092 words of font info for 70 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,1161b,255s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,1161b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/us
 r/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
 /2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2
@@ -449,7 +449,7 @@ st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/font
 s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/urw/times
 /utmri8a.pfb>
-Output written on sigproc-sp.pdf (3 pages, 433446 bytes).
+Output written on sigproc-sp.pdf (3 pages, 433611 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream

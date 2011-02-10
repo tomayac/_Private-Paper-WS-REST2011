@@ -93,7 +93,7 @@
 
 \maketitle
 \begin{abstract}
-
+In this position paper we present a way how the hypermedia constraint from REST can be enabled using a combination of Link headers, the HTTP OPTIONS method, and the HTTP Vocabulary in RDF. We have implemented our approach in a Web service of ours, and discuss the learnings in the second part of the paper.
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -117,15 +117,13 @@ In the Richardson Maturity Model\footnote{\url{http://martinfowler.com/articles/
 
 The authors, however, prefer not to use the RMM because it implies that the three lower levels induce a researched set of properties that imply that there is a known/assessable value in applying only a subset of the REST constraints.
 
-The remainder of this paper is structured as follows: 
-
-\section{On the Hypermedia Constraint}\label{sec:hateoas}
+\subsection{On the Hypermedia Constraint}\label{sec:hateoas}
 We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. Next, we need to define \textit{application state}. The problem with \textit{application state}, however, is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained ten results and a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, it can be directly implied that the current page must be page eight, if, and only if, the relation and/or meaning of the links is well-known beforehand. Hence the application is in state eight, without the explicit need to serialize this state somehow. The state machine of an application is not defined by the service, but by the user agent. In other words, the application comes into being by the choices the user agent makes, not by what the service intended.
 
-\subsection{Present Ways To (Partly) Fulfill the Hypermedia Constraint}\label{sec:currenthateoas}
+\section{Present Ways To (Partly) Fulfill the Hypermedia Constraint}\label{sec:currenthateoas}
 The hypermedia constraint is enabled by embedding controls (e.g., links, forms) in the representations made available to the client. There is no standard way to represent hypermedia controls, however, there are common practices that we present in the following section (not in any particular order).
 
-\subsubsection{Atom Syndication Format (RFC4287)}\label{sec:atom}
+\subsection{Atom Syndication Format (RFC4287)}\label{sec:atom}
 In the Atom Syndication Format \cite{Atom:Synd} there is the \texttt{atom:link} element that defines a reference from an entry or feed to a Web resource. The structure of the element is as follows:
 \begin{verbatim}
 atomLink =
@@ -142,7 +140,7 @@ atomLink =
 \end{verbatim}
 The \texttt{@href} attribute has to contain the link's IRI (the response to the question "\textit{where} can one go next"). The response to the question "\textit{what} can one do next" can (not must) be given in the link's \texttt{@rel} attribute. Its value can be a pre-defined value\footnote{The current list of pre-defined link relations is maintained by the IANA at \url{http://www.iana.org/assignments/link-relations/link-relations.xhtml.}}, or an IRI for custom link relations.
 
-\subsubsection{Google Data Protocol}\label{sec:gdata}
+\subsection{Google Data Protocol}\label{sec:gdata}
 The Google Data Protocol\cite{Google:Data} extends the Atom Publishing Protocol\cite{Atom:Pub} for processing queries, authentication, and batch requests. The Atom Publishing Protocol is an application-level protocol for publishing and editing Web resources. It is based on HTTP transfer of Atom-formatted representations. There are two serializations available: XML and JSON\footnote{\url{http://code.google.com/apis/gdata/docs/json.html}}. The structure of the XML serialization is the same as in \ref{sec:atom}, the structure of the JSON serialization can be seen below:
 \begin{verbatim}
 "link": [{
@@ -153,16 +151,16 @@ The Google Data Protocol\cite{Google:Data} extends the Atom Publishing Protocol\
 \end{verbatim}
 The elements and attributes of the JSON serialization are a straight-forward mapping of the XML serialization. The main advantage of JSON is that it is directly usable in JavaScript.
 
-\subsubsection{(X)HTML With Or Without Forms}\label{sec:xhtml}
+\subsection{(X)HTML With Or Without Forms}\label{sec:xhtml}
 A regular human-readable (X)HTML page can serve as a hypermedia control, too. Contained links and potential surrounding textual can be understood by humans, while machines can process just the links. Forms can give further instructions on the \textit{how} of the next steps. With forms allowed values for parameters, like, e.g., enumerations can be given.
 
-\subsubsection{Form Technologies}\label{sec:formtechs}
+\subsection{Form Technologies}\label{sec:formtechs}
 We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http://www.crummy.com/writing/speaking/2008-QCon/act3.html}} to reference a subset of description languages and mechanisms that are commonly criticized as being brittle\footnote{See, e.g., \url{http://bitworking.org/news/193/Do-we-need-WADL} for WADL.}. The goal of such form technologies like the Web Application Description Language (WADL)\footnote{\url{http://www.w3.org/Submission/wadl/}}, RDF Forms\footnote{\url{http://www.markbaker.ca/2003/05/RDF-Forms/}}, or even the Web Services Description Language Version 2.0 (WSDL 2.0)\footnote{\url{http://www.w3.org/TR/wsdl20/}} is to describe the HTTP methods, parameters, and allowed values that are involved during a Web service request. It is to be noted that WSDL 2.0 is a design-time description language, whereas WADL at least \textit{can} be used as a run-time description language. We still decided to mention it because it can be used\footnote{\url{http://www.ibm.com/developerworks/webservices/library/ws-restwsdl/}} to describe REST Web services.
 
-\subsubsection{Media Types}\label{sec:mediatypes}
+\subsection{Media Types}\label{sec:mediatypes}
 Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are hypermedia controls. If media types are defined to be extensible (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. In order to register a new custom media type, a registration template can be submitted for review to the IANA\cite{IANA:Mime}. Specific, i.e., exactly not \texttt{application/json}, \texttt{application/xml} or \texttt{text/xml}) are an essential aspect of achieving self descriptiveness and key for implementing truely RESTful APIs.
 
-\section{Link Headers}\label{sec:linkheaders}
+\subsection{Link Headers}\label{sec:linkheaders}
 In the Web Linking\cite{Link:Headers} proposed standard document Mark Nottingham specifies relation types for Web links and how such links can be used with a Link header field in HTTP. In addition to that the document also defines a registry for link relations in section 6.2.2, therewith updating the relations defined in the Atom Syndication Format. Quoting from \cite{Link:Headers}:
 \begin{quote}
 The Link entity-header field provides a means for serialising one or more links in HTTP headers.  It is semantically equivalent to the <LINK> element in HTML, as well as the atom:link feed-level element in Atom [RFC4287].
@@ -191,15 +189,60 @@ Link: <http://example.org/video.txt>;
 \end{verbatim}
 
 \section{HTTP OPTIONS}\label{sec:httpoptions}
+The HTTP OPTIONS is one of the most basic ways to discover a resource. According to section 5.1.1 of the HTTP/1.1 specification\cite{HTTP:Spec} only the methods GET and HEAD must be supported by all general-purpose servers, all other methods are optional. The specification says about OPTIONS:
 \begin{quote}
 The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots]
 
 A 200 response SHOULD include any header fields that indicate optional features implemented by the server and applicable to that resource (e.g., Allow), possibly including extensions not defined by this specification. The response body, if any, SHOULD also include information about the communication options. The format for such a body is not defined by this specification, but might be defined by future extensions to HTTP. Content negotiation MAY be used to select the appropriate response format.
-\end{quote} \cite{HTTP:Spec}
+\end{quote}
+HTTP OPTIONS is currently not widely supported. While we have no statistically relevant data, a quick round-check (OPTIONS on the main domain, following potential redirects) of the search engines Yahoo!, Bing, and Google resulted in two 405 Method Not Allowed errors for Bing and Google, whereas Yahoo! delivered the Web site content as if the method was GET. The expected behavior can be seen on our university domain \url{http://www.upc.edu/}, including out-of-HTTP extensions:
+\begin{verbatim}
+$ curl  -i -X OPTIONS http://www.upc.edu/
+HTTP/1.1 200 OK
+Allow: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE,
+    PROPFIND, PROPPATCH, MKCOL, COPY, [...]
+Content-Length: 0
+\end{verbatim}
+We could not find a server that returned a response body, however, using the Node.js\footnote{\url{http://nodejs.org/}} server with the Express framework\footnote{\url{http://github.com/visionmedia/express}} we succeeded in fully controlling both the Allow header and the response body:
+\begin{verbatim}
+$ curl -i -X OPTIONS http://localhost:3000
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=utf-8
+Allow: GET, HEAD, OPTIONS
+Content-Length: 14
+
+I'M THE BODY!
+\end{verbatim}
 
 \section{The HTTP Vocabulary in RDF}\label{sec:httpvocab}
-\cite{HTTP:RDF}
+HTTP Vocabulary in RDF\cite{HTTP:RDF} defines a representation of HTTP in Resource Description Framework (RDF)\cite{W3C:RDF}. It is intended to record HTTP or HTTPS request and response messages, including the various headers. Consider the following HTTP request:
+\begin{verbatim}
+$ curl -i http://dbpedia.org/resource/Barcelona
+    -H "Accept: application/rdf+xml"
+\end{verbatim}
+Modeled in RDF (in Turtle syntax\footnote{\url{http://www.w3.org/TeamSubmission/turtle/}}, prefixes omitted for the sake of brevity) the request looks like this:
+\begin{verbatim}
+_:req a http:Request ;
+  http:httpVersion "1.1" ;
+  http:methodName "GET" ;
+  http:mthd <http://www.w3.org/2008/http-
+      methods#GET> ;
+  http:abs_path "/resource/Barcelona" ;
+  http:resp _:resp ;
+  http:headers (
+    [ http:fieldName "Host";
+      http:fieldValue "dbpedia.org";
+      http:hdrName <http://www.w3.org/2008/-
+          http-header#host> ]
+    [ http:fieldName "Accept";
+      http:fieldValue "application/rdf+xml";
+      http:hdrName <http://www.w3.org/2008/-
+          http-header#accept> ]
+      ) .
+\end{verbatim}
+Albeit verbous, the RDF triples represent the request in a protocol-compliant way. The response to the request could be modeled in the blank node \texttt{\_:resp}.
 
+\section{Implementation And Lessons Learnt}\label{sec:implementation}
 \begin{figure}
  \centering
  \includegraphics[width=\linewidth]{statemachine.png}
@@ -207,7 +250,8 @@ A 200 response SHOULD include any header fields that indicate optional features 
  \label{fig:statemachine}
 \end{figure}
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Related Work And Conclusion}\label{sec:relatedwork}
+\cite{W3C:Blog}
 
 %\end{document}  % This is where a 'short' article might terminate
 

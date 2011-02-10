@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{TimBL:LinkedData}
 T.~Berners-Lee.
@@ -27,6 +27,12 @@ J.~Gregorio and B.~de~h{\'O}ra.
 \newblock {The Atom Publishing Protocol}, October 2007.
 \newblock \url{http://tools.ietf.org/html/rfc5023}.
 
+\bibitem{W3C:RDF}
+G.~Klyne, J.~J. Carroll, and B.~McBride.
+\newblock {Resource Description Framework (RDF): Concepts and Abstract Syntax}.
+\newblock W3C Recommendation, February 10, 2004.
+\newblock \url{http://www.w3.org/TR/rdf-concepts/}.
+
 \bibitem{HTTP:RDF}
 J.~Koch and C.~A. Velasco.
 \newblock {HTTP Vocabulary in RDF 1.0}, 29 October 2009.
@@ -41,5 +47,12 @@ M.~Nottingham.
 M.~Nottingham and J.~Sayre.
 \newblock {The Atom Syndication Format}, December 2005.
 \newblock \url{http://tools.ietf.org/html/rfc4287}.
+
+\bibitem{W3C:Blog}
+J.~Rees.
+\newblock {New opportunities for linked data nose-following}.
+\newblock W3C Blog, Juli 27, 2006.
+\newblock
+  \url{http://www.w3.org/QA/2010/07/new_opportunities_for_linked_d.html}.
 
 \end{thebibliography}

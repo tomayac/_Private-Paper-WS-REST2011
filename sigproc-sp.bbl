@@ -1,10 +1,24 @@
 \begin{thebibliography}{1}
 
-\bibitem{Steiner:SemWebVid}
-T.~Steiner.
-\newblock Semwebvid - making video a first class semantic web citizen and a
-  first class web bourgeois.
-\newblock In {\em 9th International Semantic Web Conference (ISWC2010)},
-  November 2010.
+\bibitem{HTTP:Spec}
+R.~Fielding, J.~Gettys, J.~Mogul, H.~Frystyk, L.~Masinter, P.~Leach, and
+  T.~Berners-Lee.
+\newblock {Hypertext Transfer Protocol -- HTTP/1.1}, June 1999.
+\newblock \url{http://tools.ietf.org/html/rfc2616}.
+
+\bibitem{Google:Data}
+Google.
+\newblock {Google Data Protocol}, retrieved on February 10, 2011.
+\newblock \url{http://code.google.com/apis/gdata/}.
+
+\bibitem{Atom:Pub}
+J.~Gregorio and B.~de~h{\'O}ra.
+\newblock {The Atom Publishing Protocol}, October 2007.
+\newblock \url{http://tools.ietf.org/html/rfc5023}.
+
+\bibitem{Atom:Synd}
+M.~Nottingham and J.~Sayre.
+\newblock {The Atom Syndication Format}, December 2005.
+\newblock \url{http://tools.ietf.org/html/rfc4287}.
 
 \end{thebibliography}

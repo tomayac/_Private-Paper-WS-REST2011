@@ -101,10 +101,10 @@
 
 \terms{Experimentation}
 
-\keywords{RDF, LOD, Linked Data, Semantic Web, NLP, Video} % NOT required for Proceedings
+\keywords{REST, HATEOAS, HTTP} % NOT required for Proceedings
 
 \section{Introduction}\label{sec:introduction}
-In one of his more famous rants\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven}} Roy T. Fielding complains about the common practice to call about any HTTP-based interface a REST API. He names a concrete example and writes that it actually "screams RPC" [sic]. Fielding continues that REST APIs must be hypertext driven. He defines\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718}} \textit{hypertext} (and positions it to the term \textit{hypermedia}) as follows:
+In one of his blog posts\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven}} Roy T. Fielding complains about the common practice to call any and all HTTP-based interface a REST API. He names a concrete example and writes that it actually "screams RPC" [sic]. Fielding continues that REST APIs must be hypertext driven. He defines\footnote{\url{http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718}} \textit{hypertext} (and compares it to the term \textit{hypermedia}) as follows:
 \begin{quotation}
 When I say hypertext, I mean the simultaneous presentation of information and controls such that the information becomes the affordance through which the user (or automaton) obtains choices and selects actions. Hypermedia is just an expansion on what text means to include temporal anchors within a media stream; most researchers have dropped the distinction.
 
@@ -112,7 +112,69 @@ Hypertext does not need to be HTML on a browser. Machines can follow links when 
 \end{quotation}
 For REST purists Hypermedia As the Engine Of Application State (HATEOAS) is the last and the hardest step towards the full glory of REST.
 
+\subsection{Richardson Maturity Model}
+In the Richardson Maturity Model\footnote{\url{http://martinfowler.com/articles/richardsonMaturityModel.html}} Leonard Richardson describes four levels towards true REST. Level zero is about tunneling all data through HTTP with only one HTTP method (usually POST, sometimes also GET) to one and the same endpoint usually using Remote Procedure Calls (RPC) and neglecting any mechanisms of the Web. Level one introduces resources, so rather than talking to just one endpoint, several endpoints are used. Level two switches from just one HTTP method to more adequate methods, oftentimes aligned to the four functions of persistent storage, CREATE, READ, UPDATE, DELETE (CRUD). In addition to different HTTP methods, also different HTTP status codes are used in order to signal failures, conflicts, or success. Finally level three introduces hypermedia controls that give an answer to the question "\textit{where} can one go next" and "\textit{what} can one do next" after each request in form of links. A Web service or API designed along this principles can be autodiscovered by a user agent by simply following her nose. To a certain extent an API can be self-documenting.
+
 The remainder of this paper is structured as follows: 
+
+\section{On HATEOAS}\label{sec:hateoas}
+We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. The next big component in the acronym HATEOAS is \textit{application state}. The problem, however, with \textit{application state} is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained ten results and a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, it can be directly implied that the current page must be page eight, if, and only if, the relation and/or meaning of the links is well-known beforehand. Hence the application is in state eight, without the explicit need to serialize this state somehow.
+
+\subsection{Present Ways To Represent HATEOAS}\label{sec:currenthateoas}
+There is no defined standard on how to represent HATEOAS. There are, however, common practices that we present in the following (not in any particular order).
+
+\subsubsection{Atom (RFC4287)}\label{sec:atom}
+In the Atom Syndication Format \cite{Atom:Synd} there is the \texttt{atom:link} element that defines a reference from an entry or feed to a Web resource. The structure of the element is as follows:
+\begin{verbatim}
+atomLink =
+  element atom:link {
+    atomCommonAttributes,
+    attribute href { atomUri },
+    attribute rel { atomNCName | atomUri }?,
+    attribute type { atomMediaType }?,
+    attribute hreflang { atomLanguageTag }?,
+    attribute title { text }?,
+    attribute length { text }?,
+    undefinedContent
+  }
+\end{verbatim}
+The \texttt{@href} attribute has to contain the link's IRI (the response to the question "\textit{where} can one go next"). The response to the question "\textit{what} can one do next" can (not must) be given in the link's \texttt{@rel} attribute. Its value can be a pre-defined value\footnote{The current list of pre-defined link relations is maintained by the IANA at \url{http://www.iana.org/assignments/link-relations/link-relations.xhtml.}}, or an IRI for custom link relations.
+
+\subsubsection{Google Data Protocol}\label{sec:gdata}
+The Google Data Protocol\cite{Google:Data} extends the Atom Publishing Protocol\cite{Atom:Pub} for processing queries, authentication, and batch requests. The Atom Publishing is an application-level protocol for publishing and editing Web resources. It is based on HTTP transfer of Atom-formatted representations. There are two serializations available: XML and JSON\footnote{\url{http://code.google.com/apis/gdata/docs/json.html}}. The structure of the XML serialization is the same as in \ref{sec:atom}, the structure of the JSON serialization can be seen below:
+\begin{verbatim}
+"link": [{
+  "rel": "...",
+  "type": "...",
+  "href": "..."
+}]
+\end{verbatim}
+The elements and attributes of the JSON serialization are a straight-forward mapping of the XML serialization. The main advantage of JSON is that it is directly usable in JavaScript.
+
+\subsubsection{(X)HTML With Or Without Forms}\label{sec:xhtml}
+A regular human-readable (X)HTML page can serve as a hypermedia control, too. Contained links and potential surrounding textual can be understood by humans, while machines can process just the links. Forms can give further instructions on the \textit{how} of the next steps. With forms allowed values for parameters, like, e.g., enumerations can be given.
+
+\subsubsection{Form Technologies}\label{sec:formtechs}
+We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http://www.crummy.com/writing/speaking/2008-QCon/act3.html}} to reference a subset of description languages and mechanisms that are commonly criticized as being brittle\footnote{See, e.g., \url{http://bitworking.org/news/193/Do-we-need-WADL} for WADL.}. The goal of such form technologies like the Web Application Description Language (WADL)\footnote{\url{http://www.w3.org/Submission/wadl/}}, RDF Forms\footnote{\url{http://www.markbaker.ca/2003/05/RDF-Forms/}}, or even the Web Services Description Language Version 2.0 (WSDL 2.0)\footnote{\url{http://www.w3.org/TR/wsdl20/}} is to describe the HTTP methods, parameters, and allowed values that are involved during a Web service request.
+
+\subsubsection{Media Types}\label{sec:mediatypes}
+Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are links. If media types are defined in an open way (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. Media types are cheap to create\footnote{See \url{http://tools.ietf.org/html/rfc2048\#section-2.1.2} and http://tools.ietf.org/html/rfc2048\#section-2.1.3 of RFC2048.} and are seen as the method of choice for implementing truely RESTful APIs.
+
+\section{HTTP OPTIONS}\label{sec:httpoptions}
+\begin{quotation}
+The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots]
+
+A 200 response SHOULD include any header fields that indicate optional features implemented by the server and applicable to that resource (e.g., Allow), possibly including extensions not defined by this specification. The response body, if any, SHOULD also include information about the communication options. The format for such a body is not defined by this specification, but might be defined by future extensions to HTTP. Content negotiation MAY be used to select the appropriate response format.
+\end{quotation} \cite{HTTP:Spec}
+
+\section{The HTTP Vocabulary in RDF}\label{sec:httpvocab}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\linewidth]{statemachine.png}
+ \caption{State machine for a Web service with link relations, and allowed HTTP methods.}
+ \label{fig:statemachine}
+\end{figure}
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -120,7 +182,7 @@ The remainder of this paper is structured as follows:
 
 %ACKNOWLEDGMENTS are optional
 \section{Acknowledgments}\label{sec:acknowledgments}
-This work is partly funded by the EU FP7 I-SEARCH project (project reference 248296).
+This work is partially funded by the EU FP7 I-SEARCH project (project reference 248296).
 
 %
 % The following two commands are all you need in the

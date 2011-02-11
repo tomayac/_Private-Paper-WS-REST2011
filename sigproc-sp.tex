@@ -180,7 +180,7 @@ HTTP OPTIONS is one of the most basic ways to discover a resource. According to 
 \begin{quote}
 The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots] A 200 response SHOULD include any header fields that indicate optional features implemented by the server and applicable to that resource (e.g., Allow), possibly including extensions not defined by this specification. The response body, if any, SHOULD also include information about the communication options. The format for such a body is not defined by this specification, but might be defined by future extensions to HTTP.
 \end{quote}
-OPTIONS is currently not widely supported. While we have no statistically relevant data, a quick round-check (OPTIONS on the main domain, following potential redirects) of the search engines Yahoo!, Bing, and Google resulted in two 405 Method Not Allowed errors for Bing and Google, whereas Yahoo! delivered the Web site as with GET. The expected behavior can be seen for example on our university domain \url{http://www.upc.edu/}, including out-of-HTTP extensions:
+OPTIONS is not supported by all servers. The expected behavior can be seen for example on our university domain \url{http://www.upc.edu/}, including out-of-HTTP extensions:
 \begin{verbatim}
 $ curl  -i -X OPTIONS http://www.upc.edu/
 HTTP/1.1 200 OK
@@ -273,7 +273,7 @@ User agents can then try to discover the constraints (in this case that the {vid
 \end{figure}
 
 \section{Conclusion}\label{sec:relatedwork}
-We have shown an approach towards fulfilling the hypermedia constraint with the OPTIONS message header and body, where the header contains Link headers, and the body HTTP Vocabulary in RDF triples. The approach has been successfully applied to an API with media type constraints.
+We have shown an approach towards fulfilling the hypermedia constraint with the OPTIONS message header and body, where the header contains Link headers, and the body HTTP Vocabulary in RDF triples. The approach has been successfully applied to an API with media type constraints. A criticism of the approach might be that it seems to encourage tight coupling, however, not if API consumers interpret their OPTIONS at run-time. Given the complete Semantic Web stack, automatic reasoning over such service annotations could be possible, and, in addition to that, semantic link relations open to REST the whole Linked Data world. Future work will be to evaluate our approach on more and complexer services, and see how far a consumer can reach with only discovering OPTIONS, following links, and interpreting the results.
 
 %\end{document}  % This is where a 'short' article might terminate
 

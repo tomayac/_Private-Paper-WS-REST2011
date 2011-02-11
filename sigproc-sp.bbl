@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{1}
 
 \bibitem{TimBL:LinkedData}
 T.~Berners-Lee.
@@ -10,12 +10,6 @@ R.~Fielding, J.~Gettys, J.~Mogul, H.~Frystyk, L.~Masinter, P.~Leach, and
   T.~Berners-Lee.
 \newblock {Hypertext Transfer Protocol -- HTTP/1.1}, June 1999.
 \newblock \url{http://tools.ietf.org/html/rfc2616}.
-
-\bibitem{IANA:Mime}
-N.~Freed and J.~Klensin.
-\newblock {Multipurpose Internet Mail Extensions (MIME) Part Four: Registration
-  Procedures}, December 2005.
-\newblock \url{http://tools.ietf.org/html/rfc4289}.
 
 \bibitem{Google:Data}
 Google.
@@ -47,12 +41,5 @@ M.~Nottingham.
 M.~Nottingham and J.~Sayre.
 \newblock {The Atom Syndication Format}, December 2005.
 \newblock \url{http://tools.ietf.org/html/rfc4287}.
-
-\bibitem{W3C:Blog}
-J.~Rees.
-\newblock {New opportunities for linked data nose-following}.
-\newblock W3C Blog, Juli 27, 2006.
-\newblock
-  \url{http://www.w3.org/QA/2010/07/new_opportunities_for_linked_d.html}.
 
 \end{thebibliography}

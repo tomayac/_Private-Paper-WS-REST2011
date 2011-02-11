@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  10 FEB 2011 21:52
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  11 FEB 2011 03:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -364,28 +364,17 @@ pis -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-[][]$\T1/aett/m/n/9 http : / / roy . gbiv . com / untangled / 2008 / rest -[] a
-pis -[]
- []
-
-
 Overfull \hbox (13.73293pt too wide) in paragraph at lines 109--110
 \T1/aer/m/n/9 that the in-for-ma-tion be-comes the af-for-dance through
  []
 
 
-Overfull \hbox (7.79236pt too wide) in paragraph at lines 111--112
-[]\T1/aer/m/n/9 Hypertext does not need to be HTML on a browser.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 [][]$\T1/aett/m/n/9 http : / / martinfowler . com / articles /
  []
 
 
-Overfull \hbox (5.0008pt too wide) in paragraph at lines 116--117
+Overfull \hbox (5.0008pt too wide) in paragraph at lines 114--115
 \T1/aer/m/n/9 In the Richard-son Ma-tu-rity Model[] (RMM) Leonard Richard-
  []
 
@@ -393,119 +382,100 @@ Overfull \hbox (5.0008pt too wide) in paragraph at lines 116--117
 
 
 ]
-Overfull \hbox (2.80382pt too wide) in paragraph at lines 123--123
-[]\secfnt PRESENT WAYS TO (PARTLY) FUL-FILL
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 152--152
 [][]$\T1/aett/m/n/9 http : / / www . crummy . com / writing / speaking / 2008 -
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 152--152
 [][]\T1/aer/m/n/9 See, e.g., $\T1/aett/m/n/9 http : / / bitworking . org / news
  / 193 / Do -[] we -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
-[][]$\T1/aett/m/n/9 http : / / www . ibm . com / developerworks / webservices /
-
- []
-
-
-Overfull \hbox (5.07463pt too wide) in paragraph at lines 158--159
+Overfull \hbox (5.07463pt too wide) in paragraph at lines 152--153
 \T1/aer/m/n/9 We adopt the term "form tech-nolo-gies" from Leonard Richard-
  []
 
-
-Overfull \hbox (5.21043pt too wide) in paragraph at lines 158--159
-\T1/aer/m/n/9 Web Ser-vices De-scrip-tion Lan-guage Ver-sion 2.0 (WSDL 2.0)[]
- []
-
 [2]
-Overfull \hbox (10.58308pt too wide) in paragraph at lines 194--195
+Overfull \hbox (10.58308pt too wide) in paragraph at lines 181--182
 \T1/aer/m/n/9 in-for-ma-tion about the com-mu-ni-ca-tion op-tions avail-
  []
 
 
-Overfull \hbox (3.84007pt too wide) in paragraph at lines 196--197
-[]\T1/aer/m/n/9 A 200 re-sponse SHOULD in-clude any header fields
- []
-
-
-Overfull \hbox (3.16624pt too wide) in paragraph at lines 196--197
-\T1/aer/m/n/9 SHOULD also in-clude in-for-ma-tion about the com-
- []
-
-
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 205--205
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 190--190
 []\T1/aett/m/n/9 Allow: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE,[] 
  []
 
+
+Overfull \hbox (9.16977pt too wide) in paragraph at lines 220--221
+\T1/aer/m/n/9 with \T1/aett/m/n/9 application/prs.nee-entity+json \T1/aer/m/n/9
+ for NEE-based data,
+ []
+
+
+Overfull \hbox (10.96718pt too wide) in paragraph at lines 220--221
+\T1/aer/m/n/9 se-ri-al-iza-tions, in con-se-quence the me-dia types are \T1/aet
+t/m/n/9 text/turtle\T1/aer/m/n/9 ,
+ []
+
 [3]
-Overfull \hbox (31.80272pt too wide) in paragraph at lines 248--249
-\T1/aer/m/n/9 YouTube API-based data, with \T1/aett/m/n/9 application/prs.nee-e
-ntity+json
+Overfull \hbox (9.94414pt too wide) in paragraph at lines 231--231
+[]\T1/aett/m/n/9 Link: <http://localhost/youtube/videos/53PuHGKnboNY>;[] 
  []
 
 
-Overfull \hbox (21.58768pt too wide) in paragraph at lines 248--249
-\T1/aer/m/n/9 for NEE-based data, and with \T1/aett/m/n/9 application/prs.ul-en
-tity+json
+Overfull \hbox (19.37599pt too wide) in paragraph at lines 231--231
+[]      \T1/aett/m/n/9 <http://localhost/youtube/search/opensearch.xml>;[] 
  []
 
 
-Overfull \hbox (9.94414pt too wide) in paragraph at lines 260--260
-[]\T1/aett/m/n/9 Link: <http://localhost:3000/youtube/search/{query}>;[] 
+Overfull \hbox (14.66006pt too wide) in paragraph at lines 231--231
+[]      \T1/aett/m/n/9 <>; rel="alternate"; type="application/rdf+xml",[] 
  []
 
 
-Overfull \hbox (14.66006pt too wide) in paragraph at lines 260--260
-[]      \T1/aett/m/n/9 <>; rel="alternate"; type="application/rdf+xml";[] 
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 238--238
+[]    \T1/aett/m/n/9 <http://localhost/youtube/videos/53PuHGKnboNY> ;[] 
  []
 
 
-Overfull \hbox (28.80785pt too wide) in paragraph at lines 260--260
-[]      \T1/aett/m/n/9 <http://localhost:3000/youtube/videos/5irhWbQrFTE>;[] 
- []
-
-
-Overfull \hbox (33.52377pt too wide) in paragraph at lines 260--260
-[]          \T1/aett/m/n/9 rel="related"; type="application/prs.atom+json";[] 
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 266--266
+[]\T1/aett/m/n/9 $ curl -i -X OPTIONS http://localhost/youtube/videos[] 
  []
 
 <statemachine.png, id=21, 1140.18831pt x 784.64572pt>
 File: statemachine.png Graphic file (type png)
  <use statemachine.png>
-(./sigproc-sp.bbl [4 <./statemachine.png (PNG copy)>]) [5
+Overfull \hbox (4.55038pt too wide) in paragraph at lines 282--283
+\T1/aer/m/n/9 Partially funded by EU FP7 I-SEARCH project (ref. 248296). 
+ []
 
-] (./sigproc-sp.aux) ) 
+(./sigproc-sp.bbl) [4 <./statemachine.png (PNG copy)>] (./sigproc-sp.aux) ) 
 Here is how much of TeX's memory you used:
- 3154 strings out of 493747
- 40911 string characters out of 3143546
- 98207 words of memory out of 3000000
- 6364 multiletter control sequences out of 15000+200000
+ 3152 strings out of 493747
+ 40890 string characters out of 3143546
+ 98200 words of memory out of 3000000
+ 6362 multiletter control sequences out of 15000+200000
  49956 words of font info for 69 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,2128b,253s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/
-8r.enc}</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9
-.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.p
-fb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
-/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texl
-ive/2010/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on sigproc-sp.pdf (5 pages, 516440 bytes).
+ 39i,10n,26p,1832b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/us
+r/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2
+010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2010/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2010/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-di
+st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/font
+s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1
+/urw/times/utmb8a.pfb>
+Output written on sigproc-sp.pdf (4 pages, 506888 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 55 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

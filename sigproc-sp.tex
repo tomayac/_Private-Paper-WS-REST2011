@@ -93,7 +93,7 @@
 
 \maketitle
 \begin{abstract}
-One of the main REST design principles is the focus on media types as the core of contracts on the Web. However, not always is the service designer free to select the most appropriate media type for a task, sometimes a generic media type like application/rdf+xml with no defined hypermedia controls at all has to be chosen. With this position paper we present a way how the hypermedia constraint from REST can still be fulfilled using a combination of Link headers, the OPTIONS method, and the HTTP Vocabulary in RDF. 
+One of the main REST design principles is the focus on media types as the core of contracts on the Web. However, not always is the service designer free to select the most appropriate media type for a task, sometimes a generic media type like application/rdf+xml (or in the worst case a binary format like image/png) with no defined or possible hypermedia controls at all has to be chosen. With this position paper we present a way how the hypermedia constraint of REST can still be fulfilled using a combination of Link headers, the OPTIONS method, and the HTTP Vocabulary in RDF. 
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -116,16 +116,15 @@ In the Richardson Maturity Model\footnote{\url{http://martinfowler.com/articles/
 The authors, however, prefer not to use the RMM because it implies that the three lower levels induce a researched set of properties that imply that there is a known/assessable value in applying only a subset of the REST constraints.
 
 \subsection{On the Hypermedia Constraint}\label{sec:hateoas}
-We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. Next, we define \textit{application state}. The problem with \textit{application state}, however, is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, there can be directly implied that the current page must be page eight, if, and only if, the relations of the links are known beforehand. In consequence the application is in state eight, without the explicit need to serialize this state somehow. The state machine of an application is not defined by the service, but by the user agent. In other words, the application comes into being by the choices the user agent makes, not by what the service intended.
+We have cited Fielding's to-the-point definition of \textit{hypermedia}/\textit{hypertext} above. Next, we define \textit{application state}. The problem with \textit{application state}, however, is that it is understood differently by different people. We tend to a definition that is explained best with the example of pagination on a search engine results page. Assume each page contained a link to its direct successor and predecessor. If the current page has a link to page seven and page nine, there can be directly implied that the current page must be page eight, if, and only if, the relations of the links are known beforehand. In consequence the application is in state eight, without the explicit need to serialize this state somehow (and without the application even being aware of the existance of such state eight). The state machine of an application is not defined by the service, but by the user agent. In other words, the application comes into being by the choices the user agent makes, not by what the service intended.
 
 \section{Hypermedia Controls}\label{sec:currenthateoas}
-The hypermedia constraint is fulfilled by embedding hypermedia controls (e.g., links, forms) in the representations made available to the client. There is no standard way to represent these controls, however, some common practices.
+The hypermedia constraint is enabled by embedding hypermedia controls (e.g., links, forms) in the representations made available to the client. There is no standard way to represent these controls, however, some common practices.
 
 \subsection{Atom Syndication Format (RFC4287)}\label{sec:atom}
 In the Atom Syndication Format \cite{Atom:Synd} there is the \texttt{atom:link} element that defines a reference from an entry or feed to a Web resource. The (simplified) structure of the element is as follows:
 \begin{verbatim}
-atomLink =
-  element atom:link {
+atomLink = element atom:link {
     attribute href { atomUri },
     attribute rel { atomNCName | atomUri }?,
     attribute type { atomMediaType }?,
@@ -145,17 +144,16 @@ The Atom Publishing Protocol\cite{Atom:Pub} is an application-level protocol for
 \end{verbatim}
 The elements and attributes of the JSON serialization are a straight-forward mapping of the XML serialization, its advantage is that it is directly usable in JavaScript.
 
-\subsection{(X)HTML With Or Without Forms}\label{sec:xhtml}
-A regular human-readable (X)HTML page can serve as a hypermedia control. Contained links and potential surrounding textual information can be understood by humans, while machines can process the links. Forms can give further instructions on the \textit{how} of the next steps. With forms, allowed values for parameters, like, e.g., enumerations can be defined.
-
 \subsection{Form Technologies}\label{sec:formtechs}
-We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http://www.crummy.com/writing/speaking/2008-QCon/act3.html}} to reference a subset of description languages and mechanisms that are commonly criticized as being brittle\footnote{See, e.g., \url{http://bitworking.org/news/193/Do-we-need-WADL} for WADL.}. The goal of such form technologies like the Web Application Description Language (WADL)\footnote{\url{http://www.w3.org/Submission/wadl/}}, or RDF Forms\footnote{\url{http://www.markbaker.ca/2003/05/RDF-Forms/}} is to describe the HTTP methods, parameters, and allowed values that are involved during an API request.
+A regular human-readable (X)HTML page can define hypermedia controls. Contained links and potential surrounding textual information can be understood by humans, while machines can process the links. Forms can give further instructions on the \textit{how} of the next steps. With forms, allowed values for parameters, like, e.g., enumerations can be defined.
+
+We adopt the term "form technologies" from Leonard Richardson\footnote{\url{http://www.crummy.com/writing/speaking/2008-QCon/act3.html}} to reference a subset of description languages and mechanisms commonly criticized as being brittle\footnote{See, e.g., \url{http://bitworking.org/news/193/Do-we-need-WADL} for WADL.}. The goal of form technologies like the Web Application Description Language (WADL)\footnote{\url{http://www.w3.org/Submission/wadl/}} (RESTful only when being used at run-time, not at design-time), XForms\footnote{\url{http://www.w3.org/TR/xforms/}}, or RDF Forms\footnote{\url{http://www.markbaker.ca/2003/05/RDF-Forms/}} is to describe the HTTP methods, parameters, and allowed values during an API request. A well-adopted form technology is OpenSearch\footnote{\url{http://www.opensearch.org/}}.
 
 \subsection{Media Types}\label{sec:mediatypes}
 Media type give detailed insights into \textit{how} to process a representation. They outline which parts of the representation are hypermedia controls and their meaning. If media types are defined to be extensible (i.e., in a way that new data can be added without breaking old user agents that did not expect this new data), they can help decouple a service from its implementation. In order to register a new media type, a registration template can be submitted for review to the IANA. More specific, i.e., exactly not generic media types like \texttt{application/json}, \texttt{application/xml} or \texttt{text/xml}) are an essential aspect of achieving self descriptiveness and are key for implementing truely RESTful APIs.
 
 \subsection{Link Headers}\label{sec:linkheaders}
-In the proposed standard documen Web Linking\cite{Link:Headers} Mark Nottingham specifies relation types for Web links and how such links can be used with a Link header field in HTTP. In addition to that the document also defines a registry for link relations (section 6.2.2), therewith updating the relations defined in the Atom Syndication Format. Quoting from \cite{Link:Headers}:
+In the proposed standard document Web Linking\cite{Link:Headers} Mark Nottingham specifies relation types for Web links and how such links can be used with a Link header field in HTTP. In addition to that the document also defines a registry for link relations (section 6.2.2), therewith updating the relations defined in the Atom Syndication Format. Quoting from \cite{Link:Headers}:
 \begin{quote}
 The Link entity-header field provides a means for serialising one or more links in HTTP headers.  It is semantically equivalent to the <LINK> element in HTML, as well as the atom:link feed-level element in Atom [RFC4287].
 \end{quote}

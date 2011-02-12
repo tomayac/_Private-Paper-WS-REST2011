@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  11 FEB 2011 04:27
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  12 FEB 2011 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -382,82 +382,82 @@ Overfull \hbox (5.0008pt too wide) in paragraph at lines 114--115
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Underfull \hbox (badness 10000) in paragraph at lines 150--150
 [][]$\T1/aett/m/n/9 http : / / www . crummy . com / writing / speaking / 2008 -
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Underfull \hbox (badness 10000) in paragraph at lines 150--150
 [][]\T1/aer/m/n/9 See, e.g., $\T1/aett/m/n/9 http : / / bitworking . org / news
  / 193 / Do -[] we -[]
  []
 
 
-Overfull \hbox (5.07463pt too wide) in paragraph at lines 152--153
-\T1/aer/m/n/9 We adopt the term "form tech-nolo-gies" from Leonard Richard-
+Overfull \hbox (5.07463pt too wide) in paragraph at lines 150--151
+[]\T1/aer/m/n/9 We adopt the term "form tech-nolo-gies" from Leonard Richard-
  []
 
 [2]
-Overfull \hbox (10.58308pt too wide) in paragraph at lines 181--182
+Overfull \hbox (10.58308pt too wide) in paragraph at lines 179--180
 \T1/aer/m/n/9 in-for-ma-tion about the com-mu-ni-ca-tion op-tions avail-
  []
 
 
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 190--190
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 188--188
 []\T1/aett/m/n/9 Allow: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE,[] 
  []
 
 
-Overfull \hbox (9.16977pt too wide) in paragraph at lines 220--221
+Overfull \hbox (9.16977pt too wide) in paragraph at lines 218--219
 \T1/aer/m/n/9 with \T1/aett/m/n/9 application/prs.nee-entity+json \T1/aer/m/n/9
  for NEE-based data,
  []
 
 
-Overfull \hbox (10.96718pt too wide) in paragraph at lines 220--221
+Overfull \hbox (10.96718pt too wide) in paragraph at lines 218--219
 \T1/aer/m/n/9 se-ri-al-iza-tions, in con-se-quence the me-dia types are \T1/aet
 t/m/n/9 text/turtle\T1/aer/m/n/9 ,
  []
 
 [3]
-Overfull \hbox (9.94414pt too wide) in paragraph at lines 231--231
+Overfull \hbox (9.94414pt too wide) in paragraph at lines 229--229
 []\T1/aett/m/n/9 Link: <http://localhost/youtube/videos/53PuHGKnboNY>;[] 
  []
 
 
-Overfull \hbox (19.37599pt too wide) in paragraph at lines 231--231
+Overfull \hbox (19.37599pt too wide) in paragraph at lines 229--229
 []      \T1/aett/m/n/9 <http://localhost/youtube/search/opensearch.xml>;[] 
  []
 
 
-Overfull \hbox (14.66006pt too wide) in paragraph at lines 231--231
+Overfull \hbox (14.66006pt too wide) in paragraph at lines 229--229
 []      \T1/aett/m/n/9 <>; rel="alternate"; type="application/rdf+xml",[] 
  []
 
 
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 238--238
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 236--236
 []    \T1/aett/m/n/9 <http://localhost/youtube/videos/53PuHGKnboNY> ;[] 
  []
 
 
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 266--266
+Overfull \hbox (5.22821pt too wide) in paragraph at lines 264--264
 []\T1/aett/m/n/9 $ curl -i -X OPTIONS http://localhost/youtube/videos[] 
  []
 
 <statemachine.png, id=21, 1140.18831pt x 784.64572pt>
 File: statemachine.png Graphic file (type png)
  <use statemachine.png>
-Overfull \hbox (4.55038pt too wide) in paragraph at lines 282--283
+Overfull \hbox (4.55038pt too wide) in paragraph at lines 280--281
 \T1/aer/m/n/9 Partially funded by EU FP7 I-SEARCH project (ref. 248296). 
  []
 
 (./sigproc-sp.bbl) [4 <./statemachine.png (PNG copy)>] (./sigproc-sp.aux) ) 
 Here is how much of TeX's memory you used:
- 3152 strings out of 493747
- 40890 string characters out of 3143546
- 98200 words of memory out of 3000000
- 6362 multiletter control sequences out of 15000+200000
+ 3151 strings out of 493747
+ 40879 string characters out of 3143546
+ 98190 words of memory out of 3000000
+ 6361 multiletter control sequences out of 15000+200000
  49956 words of font info for 69 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  39i,10n,26p,1832b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -472,7 +472,7 @@ dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-di
 st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/font
 s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb>
-Output written on sigproc-sp.pdf (4 pages, 506862 bytes).
+Output written on sigproc-sp.pdf (4 pages, 506933 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream

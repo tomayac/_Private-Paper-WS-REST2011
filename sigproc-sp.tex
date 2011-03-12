@@ -31,6 +31,20 @@
 %\usepackage{url}
 \usepackage[hyphens]{url}
 \usepackage{textcomp}
+\usepackage{listings}
+\lstset{
+        basicstyle=\ttfamily1.5\scriptsize,
+        upquote=true,
+        showspaces=false,
+        showstringspaces=false,
+        showtabs=false,
+        tabsize=2,
+        frame=none,
+        breaklines,
+        numbers=none,
+        framexleftmargin=2mm,
+        xleftmargin=2mm,
+}
 
 \begin{document}
 
@@ -123,7 +137,7 @@ The hypermedia constraint is enabled by embedding hypermedia controls (e.g., lin
 
 \subsection{Atom Syndication Format (RFC4287)}\label{sec:atom}
 In the Atom Syndication Format \cite{Atom:Synd} there is the \texttt{atom:link} element that defines a reference from an entry or feed to a Web resource. The (simplified) structure of the element is as follows:
-\begin{verbatim}
+\begin{lstlisting}
 atomLink = element atom:link {
     attribute href { atomUri },
     attribute rel { atomNCName | atomUri }?,
@@ -131,17 +145,17 @@ atomLink = element atom:link {
     attribute hreflang { atomLanguageTag }?,
     attribute title { text }?,
     attribute length { text }?}
-\end{verbatim}
+\end{lstlisting}
 The \texttt{@href} attribute must contain the link's IRI (the response to the question "\textit{where} can one go next"). The response to the question "\textit{what} can one do next" can (not must) be given in the link's \texttt{@rel} attribute. Its value can be a pre-defined value\footnote{The current list of pre-defined link relations is maintained by the IANA at \url{http://www.iana.org/assignments/link-relations/link-relations.xhtml.}}, or an IRI for custom link relations.
 
 \subsection{Google Data Protocol}\label{sec:gdata}
 The Atom Publishing Protocol\cite{Atom:Pub} is an application-level protocol for publishing and editing Web resources. The Google Data Protocol\cite{Google:Data} extends the Atom Publishing Protocol for processing queries, authentication, and batch requests. It is based on HTTP transfer of Atom-formatted representations. There are two serializations available: XML and JSON\footnote{\url{http://code.google.com/apis/gdata/docs/json.html}}. The structure of the XML serialization is the same as in \ref{sec:atom}, the structure of the JSON serialization can be seen below:
-\begin{verbatim}
+\begin{lstlisting}
 "link": [{
   "rel": "...",
   "type": "...",
   "href": "..."}]
-\end{verbatim}
+\end{lstlisting}
 The elements and attributes of the JSON serialization are a straight-forward mapping of the XML serialization, its advantage is that it is directly usable in JavaScript.
 
 \subsection{Form Technologies}\label{sec:formtechs}
@@ -158,12 +172,12 @@ In the proposed standard document Web Linking\cite{Link:Headers} Mark Nottingham
 The Link entity-header field provides a means for serialising one or more links in HTTP headers.  It is semantically equivalent to the <LINK> element in HTML, as well as the atom:link feed-level element in Atom [RFC4287].
 \end{quote}
 A concrete example is shown below:
-\begin{verbatim}
+\begin{lstlisting}
 Link: <http://search.example.org/results/page7>;
     rel="previous"; title="previous results"
 Link: <http://search.example.org/results/page9>;
     rel="next"; title="next results"
-\end{verbatim}
+\end{lstlisting}
 As outlined in the same example in section \ref{sec:hateoas}, the implication is that the current page is page 8, as the link relations \texttt{previous} and \texttt{next} refer to an ordered series of resources. Link relations are not limited to the set of registered relations, but can be any IRI. If we build the bridge to the world of Linked Data\cite{TimBL:LinkedData} where Tim Berners-Lee defines the four rules for Linked Data, we can see that there, too, URIs play a central role:
 \begin{enumerate}
 \item Use URIs as names for things.
@@ -179,22 +193,22 @@ HTTP OPTIONS is one of the most basic ways to discover a resource. According to 
 The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. [\ldots] A 200 response SHOULD include any header fields that indicate optional features implemented by the server and applicable to that resource (e.g., Allow), possibly including extensions not defined by this specification. The response body, if any, SHOULD also include information about the communication options. The format for such a body is not defined by this specification, but might be defined by future extensions to HTTP.
 \end{quote}
 OPTIONS is not supported by all servers. The expected behavior can be seen for example on our university domain \url{http://www.upc.edu/}, including out-of-HTTP extensions:
-\begin{verbatim}
+\begin{lstlisting}
 $ curl  -i -X OPTIONS http://www.upc.edu/
 HTTP/1.1 200 OK
 Allow: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE,
     PROPFIND, PROPPATCH, MKCOL, COPY, [...]
 Content-Length: 0
-\end{verbatim}
+\end{lstlisting}
 
 \section{The HTTP Vocabulary in RDF}\label{sec:httpvocab}
 The HTTP Vocabulary in RDF\cite{HTTP:RDF} defines a representation of HTTP in Resource Description Framework (RDF)\cite{W3C:RDF}. It is intended to record HTTP(S) request and response messages, including the various headers. Consider the following HTTP request:
-\begin{verbatim}
+\begin{lstlisting}
 $ curl -i http://dbpedia.org/
     -H "Accept: application/rdf+xml"
-\end{verbatim}
+\end{lstlisting}
 Modeled in RDF (in Turtle syntax\footnote{\url{http://www.w3.org/TeamSubmission/turtle/}}, prefixes omitted for the sake of brevity) the request looks like this:
-\begin{verbatim}
+\begin{lstlisting}
 _:req a http:Request ;
   http:httpVersion "1.1" ;
   http:methodName "GET" ;
@@ -210,13 +224,13 @@ _:req a http:Request ;
       http:hdrName <http://www.w3.org/2008/-
           http-header#accept> ]
       ) .
-\end{verbatim}
+\end{lstlisting}
 
 \section{Combining the Technologies}\label{sec:implementation}
 Bringing the technologies mentioned above together, we have first Link headers to transparently inject data into a response without touching the body of the HTTP message. Second, we have OPTIONS as a means of discovering a resource on HTTP level. Third, we have the HTTP Vocabulary in RDF, which allows for HTTP communication to be modeled.
 
 In order to test how to fulfill the hypermedia constraint with these technologies, we took an existing Web application of ours\footnote{\url{http://tomayac.com/semwebvid/}}, and converted it into an API with the functionality to automatically annotate YouTube videos in RDF, where the input is a YouTube video ID, and the output an RDF document. In the course of implementing this API, a set of secondary wrapper APIs were implemented as well, one for YouTube video search based on a query, one for Named Entity Extraction (NEE) based on a text fragment, and one for URI Lookup (UL) based on a term. See Figure \ref{fig:overview} for an overview of the structure of the services and the link relations between the service components. We serve the output of the wrapping services with the pseudo media types \texttt{application/prs.atom+json} for YouTube API-based data, with \texttt{application/prs.nee-entity+json} for NEE-based data, and with \texttt{application/prs.ul-entity+json} for UL-based data. The main problem of the API is the output format: the video annotation service must return RDF in one of its serializations, in consequence the media types are \texttt{text/turtle}, or \texttt{application/rdf+xml}. The RDF/XML media type\footnote{\url{http://tools.ietf.org/html/rfc3870}} describes the format, however, no media controls. With our API it is, however, also possible to modify an existing automatically generated RDF annotation of a video in order to correct (via PUT) or delete (via DELETE) it. Hence, there are actions as potential next steps that are not described by the generic RDF/XML media type. This is where Link headers come into play. For the video annotation API these are the Link headers that get sent upon accessing \url{http://localhost/youtube/rdf/3PuHGKnboNY}:
-\begin{verbatim}
+\begin{lstlisting}
 Link: <http://localhost/youtube/videos/53PuHGKnboNY>;
           rel="related";
           type="application/prs.atom+json";
@@ -226,16 +240,16 @@ Link: <http://localhost/youtube/videos/53PuHGKnboNY>;
       <>; rel="edit"; title="delete, modify",
       <>; rel="alternate"; type="application/rdf+xml",
       <>; rel="alternate"; type="text/turtle"   
-\end{verbatim}
+\end{lstlisting}
 Complimentary to Link headers, and due to the extensibility of RDF links can also be added in triple form to the actual service output (here and below we have only listed the first from all the Link headers above, prefixes omitted):
-\begin{verbatim}
+\begin{lstlisting}
 _:link_1 a atom:link ;
   atom:href
     <http://localhost/youtube/videos/53PuHGKnboNY> ;
   atom:rel "related" .
-\end{verbatim}
+\end{lstlisting}
 In order to explore the API an OPTIONS call against, e.g., \url{http://localhost/youtube/videos} can be made that returns the following headers and body:
-\begin{verbatim}
+\begin{lstlisting}
 $ curl -i -X OPTIONS http://localhost/youtube/videos
 
 HTTP/1.1 200 OK
@@ -261,11 +275,11 @@ _:req_1 a http:Request ;
       http:hdrName <http://www.w3.org/2008/-
           http-header#host> ]
       ) .
-\end{verbatim}
-User agents can then try to discover the constraints (in this case that the {video\_id} URI template is a YouTube video ID).
-\begin{figure}
+\end{lstlisting}
+User agents can then try to discover the constraints (in this case that the {video\_id} URI template is a YouTube video ID). \texttt{exHttp} stands for an exemplary extension of the HTTP Vocabulary in RDF by URL query path and fragment, which is not covered by the original vocabulary. The \texttt{exHttp:prefixPath} stands for the first part of the query path, \texttt{exHttp:suffixPath} for the second. Combined, the two span the entire query path. The \texttt{exHttp:suffixPath} is defined as an \texttt{api:uriTemplate}\footnote{\url{http://code.google.com/p/linked-data-api/wiki/API_Vocabulary}}, which is described as being of type YouTube Data API video ID. 
+\begin{figure}{htb!}
  \centering
- \includegraphics[width=\linewidth]{statemachine.png}
+ \includegraphics[width=1.0\linewidth]{statemachine.png}
  \caption{Overview of the API structure with link relations and allowed HTTP method names.}
  \label{fig:overview}
 \end{figure}

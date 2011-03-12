@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  12 FEB 2011 22:00
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  12 MAR 2011 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -258,39 +258,66 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 )
+(/usr/local/texlive/2010/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count109
+\lst@gtempboxa=\box30
+\lst@token=\toks36
+\lst@length=\count110
+\lst@currlwidth=\dimen123
+\lst@column=\count111
+\lst@pos=\count112
+\lst@lostspace=\dimen124
+\lst@width=\dimen125
+\lst@newlines=\count113
+\lst@lineno=\count114
+\abovecaptionskip=\skip44
+\belowcaptionskip=\skip45
+\lst@maxwidth=\dimen126
+
+(/usr/local/texlive/2010/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count115
+\lst@skipnumbers=\count116
+\lst@framebox=\box31
+)
+(/usr/local/texlive/2010/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
 (./sigproc-sp.aux)
 \openout1 = `sigproc-sp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 49.
  (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    ... okay on input line 49.
  (/usr/local/texlive/2010/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen123
-\scratchbox=\box30
-\nofMPsegments=\count110
-\nofMParguments=\count111
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen124
-\MPnumerator=\count113
-\everyMPtoPDFconversion=\toks37
+\scratchcounter=\count117
+\scratchdimen=\dimen127
+\scratchbox=\box32
+\nofMPsegments=\count118
+\nofMParguments=\count119
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count120
+\MPscratchDim=\dimen128
+\MPnumerator=\count121
+\everyMPtoPDFconversion=\toks38
 ) (/usr/local/texlive/2010/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
 
@@ -337,44 +364,45 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 94.
+\c@lstlisting=\count122
+LaTeX Font Info:    Try loading font information for U+msa on input line 108.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 94.
+LaTeX Font Info:    Try loading font information for U+msb on input line 108.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 94.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 108.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for T1+aett on input line 107.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 121.
 
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
 [][]$\T1/aett/m/n/9 http : / / roy . gbiv . com / untangled / 2008 / rest -[] a
 pis -[]
  []
 
 
-Overfull \hbox (13.73293pt too wide) in paragraph at lines 109--110
+Overfull \hbox (13.73293pt too wide) in paragraph at lines 123--124
 \T1/aer/m/n/9 that the in-for-ma-tion be-comes the af-for-dance through
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--114
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 [][]$\T1/aett/m/n/9 http : / / martinfowler . com / articles /
  []
 
 
-Overfull \hbox (5.0008pt too wide) in paragraph at lines 114--115
+Overfull \hbox (5.0008pt too wide) in paragraph at lines 128--129
 \T1/aer/m/n/9 In the Richard-son Ma-tu-rity Model[] (RMM) Leonard Richard-
  []
 
@@ -382,85 +410,73 @@ Overfull \hbox (5.0008pt too wide) in paragraph at lines 114--115
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 [][]$\T1/aett/m/n/9 http : / / www . crummy . com / writing / speaking / 2008 -
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
 [][]\T1/aer/m/n/9 See, e.g., $\T1/aett/m/n/9 http : / / bitworking . org / news
  / 193 / Do -[] we -[]
  []
 
 
-Overfull \hbox (5.07463pt too wide) in paragraph at lines 150--151
+Overfull \hbox (5.07463pt too wide) in paragraph at lines 164--165
 []\T1/aer/m/n/9 We adopt the term "form tech-nolo-gies" from Leonard Richard-
  []
 
 [2]
-Overfull \hbox (10.58308pt too wide) in paragraph at lines 179--180
+Overfull \hbox (10.58308pt too wide) in paragraph at lines 193--194
 \T1/aer/m/n/9 in-for-ma-tion about the com-mu-ni-ca-tion op-tions avail-
  []
 
 
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 188--188
-[]\T1/aett/m/n/9 Allow: GET, HEAD, POST, PUT, DELETE, OPTIONS, TRACE,[] 
- []
-
-
-Overfull \hbox (9.16977pt too wide) in paragraph at lines 218--219
-\T1/aer/m/n/9 with \T1/aett/m/n/9 application/prs.nee-entity+json \T1/aer/m/n/9
- for NEE-based data,
- []
-
-
-Overfull \hbox (10.96718pt too wide) in paragraph at lines 218--219
-\T1/aer/m/n/9 se-ri-al-iza-tions, in con-se-quence the me-dia types are \T1/aet
-t/m/n/9 text/turtle\T1/aer/m/n/9 ,
+Overfull \hbox (6.28792pt too wide) in paragraph at lines 232--233
+\T1/aett/m/n/9 application/prs.nee-entity+json \T1/aer/m/n/9 for NEE-based data
+, and
  []
 
 [3]
-Overfull \hbox (9.94414pt too wide) in paragraph at lines 229--229
-[]\T1/aett/m/n/9 Link: <http://localhost/youtube/videos/53PuHGKnboNY>;[] 
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+[][]$\T1/aett/m/n/9 http : / / code . google . com / p / linked -[] data -[] ap
+i / wiki /
  []
 
-
-Overfull \hbox (19.37599pt too wide) in paragraph at lines 229--229
-[]      \T1/aett/m/n/9 <http://localhost/youtube/search/opensearch.xml>;[] 
- []
-
-
-Overfull \hbox (14.66006pt too wide) in paragraph at lines 229--229
-[]      \T1/aett/m/n/9 <>; rel="alternate"; type="application/rdf+xml",[] 
- []
-
-
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 236--236
-[]    \T1/aett/m/n/9 <http://localhost/youtube/videos/53PuHGKnboNY> ;[] 
- []
-
-
-Overfull \hbox (5.22821pt too wide) in paragraph at lines 264--264
-[]\T1/aett/m/n/9 $ curl -i -X OPTIONS http://localhost/youtube/videos[] 
- []
-
-<statemachine.png, id=21, 1140.18831pt x 784.64572pt>
+<statemachine.png, id=22, 1140.18831pt x 784.64572pt>
 File: statemachine.png Graphic file (type png)
  <use statemachine.png>
-Overfull \hbox (4.55038pt too wide) in paragraph at lines 280--281
+Overfull \hbox (14.40738pt too wide) in paragraph at lines 279--286
+\T1/aer/m/n/9 not cov-ered by the orig-i-nal vo-cab-u-lary. The \T1/aett/m/n/9 
+ex-Http:prefixPath
+ []
+
+
+Overfull \hbox (5.36053pt too wide) in paragraph at lines 279--286
+\T1/aer/m/n/9 stands for the first part of the query path, \T1/aett/m/n/9 ex-Ht
+tp:suffixPath
+ []
+
+
+Overfull \hbox (27.29712pt too wide) in paragraph at lines 279--286
+\T1/aer/m/n/9 path. The \T1/aett/m/n/9 ex-Http:suffixPath \T1/aer/m/n/9 is de-f
+ined as an \T1/aett/m/n/9 api:uriTemplate[]\T1/aer/m/n/9 ,
+ []
+
+
+Overfull \hbox (4.55038pt too wide) in paragraph at lines 294--295
 \T1/aer/m/n/9 Partially funded by EU FP7 I-SEARCH project (ref. 248296). 
  []
 
 (./sigproc-sp.bbl) [4 <./statemachine.png (PNG copy)>] (./sigproc-sp.aux) ) 
 Here is how much of TeX's memory you used:
- 3151 strings out of 493747
- 40879 string characters out of 3143546
- 98190 words of memory out of 3000000
- 6361 multiletter control sequences out of 15000+200000
- 49956 words of font info for 69 fonts, out of 3000000 for 9000
+ 4345 strings out of 493747
+ 58480 string characters out of 3143546
+ 199203 words of memory out of 3000000
+ 7539 multiletter control sequences out of 15000+200000
+ 52305 words of font info for 73 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 39i,10n,26p,1832b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,32p,1832b,1456s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/us
 r/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
 /2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2
@@ -468,14 +484,15 @@ r/local/texlive/2010/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive
 0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2010/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2010/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-di
-st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/font
-s/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1
-/urw/times/utmb8a.pfb>
-Output written on sigproc-sp.pdf (4 pages, 506933 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2010/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-dist
+/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/
+type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb>
+Output written on sigproc-sp.pdf (4 pages, 520681 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

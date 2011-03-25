@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  24 MAR 2011 13:53
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.7.21)  24 MAR 2011 16:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,7 +472,7 @@ Overfull \hbox (4.55038pt too wide) in paragraph at lines 294--295
 Here is how much of TeX's memory you used:
  4345 strings out of 493747
  58480 string characters out of 3143546
- 199203 words of memory out of 3000000
+ 198203 words of memory out of 3000000
  7539 multiletter control sequences out of 15000+200000
  52305 words of font info for 73 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -489,7 +489,7 @@ st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2010/texmf-dist
 /fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/
 type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/u
 rw/times/utmb8a.pfb>
-Output written on sigproc-sp.pdf (4 pages, 520678 bytes).
+Output written on sigproc-sp.pdf (4 pages, 520680 bytes).
 PDF statistics:
  59 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream
